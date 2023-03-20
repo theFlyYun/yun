@@ -4,6 +4,7 @@ var root = protobuf.loadSync("./websocket.proto");
 var WebsocketMessage = root.lookupType("websocket.WebsocketMessage");
  
 // Exemplary payload
+//sdaf
 var payload = { Topic: "weather",Body:new Buffer("hello the world") };
    
     // Verify the payload if necessary (i.e. when possibly incomplete or invalid)
