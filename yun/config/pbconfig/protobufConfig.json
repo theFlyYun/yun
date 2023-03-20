@@ -1,0 +1,39 @@
+{
+    "nested":{
+        "payload":{
+            "nested":{ 
+                "Message":{
+                    "fields":{
+                        "temperature": {
+                            "type": "string",
+                            "id": 1
+                        },
+                        "humidity": {
+                            "type": "string",
+                            "id": 2
+                        }
+                    }
+                }
+            }
+        },
+        "sensor":{
+            "nested":{ 
+                "SimpleMessage":{
+                    "fields":{
+                        "temp": {
+                            "type": "float",
+                            "id": 2
+                        },
+                        "battery": {
+                            "type": "uint32",
+                            "id": 4
+                        }
+                    }
+                }
+            }
+        }
+    }    
+}
+
+
+ 
