@@ -8,6 +8,7 @@ var mqtt = require('mqtt');
 const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8);
 
 const host = 'http://8.142.81.91:1883';
+//
 // const host = 'ws://localhost:1884';
 // var productKey = "a39ecc02a15affad254ff1a1ae8a244b"
 // const data4soil = '0101060000420DAC010A01010202030304040505010A01010202030304040505010A01010202030304040505010A01010202030304040505010A0101020203030404050502020046';//编码后字节流
