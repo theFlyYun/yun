@@ -17,7 +17,7 @@ const host = 'http://8.142.81.91:1883';
 // const productkey2='?气象站did'
 // const data4weather='0101060000420DAC030D0101020203030404050506060704020101'
 
-var productKey = "74139f8ab541edb7a12a13eaeebaeada"
+// var productKey = "74139f8ab541edb7a12a13eaeebaeada"
 
 const options = {
   keepalive: 60,
