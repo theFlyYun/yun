@@ -86,21 +86,21 @@ productkey2object:{
                       startByte:14,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "P1":{
                       startByte:16,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "K1":{
                       startByte:18,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
               }
@@ -140,21 +140,21 @@ productkey2object:{
                       startByte:26,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "P2":{
                       startByte:28,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "K2":{
                       startByte:30,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
               }
@@ -194,21 +194,21 @@ productkey2object:{
                       startByte:38,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "P3":{
                       startByte:40,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "K3":{
                       startByte:42,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
               }
@@ -248,21 +248,21 @@ productkey2object:{
                       startByte:50,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "P4":{
                       startByte:52,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "K4":{
                       startByte:54,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
               }
@@ -302,21 +302,21 @@ productkey2object:{
                       startByte:62,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "P5":{
                       startByte:64,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
                   "K5":{
                       startByte:66,
                       startBit:0,
                       bitLength:16,
-                      divisor:10,
+                      divisor:1,
                       unit:'mg/kg'
                   },
               }
