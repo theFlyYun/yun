@@ -3,13 +3,6 @@ pb: {
   '8914442f7766b0926658c9cb1ef2746d': 'payload.Message',
 //   'a39ecc02a15affad254ff1a1ae8a244b': 'data_compression.SensorMessage',
   'a39ecc02a15affad254ff1a1ae8a244b': 'data_compression.DeviceState',
-  // '9bc5b28d2430fc28d092b1596044364a': 'parking_lock_message.parking_lock',
-  // '67ec3d2c1256c32267ec3d2c1256c322': 'pm25_message.pm25',
-  // 'fed54149c824b46520a5c8c86553ef5c': 'ultrasonic_message.ultrasonic',
-  // '5108ca25943cadf45108ca25943cadf4': 'pm25_message.pm25',
-  // '45f95fa2949a4be545f95fa2949a4be5': 'parking_lock_message.parking_lock',
-  // '8b912fb159a923288b912fb159a92328': 'sensor_message.sensor',
-  // '73210151b0d5508973210151b0d55089': 'irrigation_message.gas_test',
 },
 productkey2object:{
   "74139f8ab541edb7a12a13eaeebaeada":{

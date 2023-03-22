@@ -60,6 +60,7 @@ function PBtoJSON (payload, productKey) {
       objects: false,  
       oneofs: false,
     });
+    // console.log(output["dataFormatVersion"])
   }
   else{
    var output = payloaddecode.rawdata2JS(payload, productKey)
