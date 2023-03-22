@@ -1,7 +1,8 @@
 module.exports = {
 pb: {
   '8914442f7766b0926658c9cb1ef2746d': 'payload.Message',
-  'a39ecc02a15affad254ff1a1ae8a244b': 'sensor.SimpleMessage',
+//   'a39ecc02a15affad254ff1a1ae8a244b': 'data_compression.SensorMessage',
+  'a39ecc02a15affad254ff1a1ae8a244b': 'data_compression.DeviceState',
   // '9bc5b28d2430fc28d092b1596044364a': 'parking_lock_message.parking_lock',
   // '67ec3d2c1256c32267ec3d2c1256c322': 'pm25_message.pm25',
   // 'fed54149c824b46520a5c8c86553ef5c': 'ultrasonic_message.ultrasonic',

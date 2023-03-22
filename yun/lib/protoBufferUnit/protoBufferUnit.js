@@ -44,16 +44,11 @@ function readConfigFile(productKey) {
  
 exports.ProtoBuf = PBtoJSON;
 
-function PBtoJSON (data, productKey) {
-
-  let rawdata = data.toString();
-  var payload = JSON.parse(rawdata).state.reported.payload
-  
-
-  var buffer =  Buffer.from(payload, 'hex')
+function PBtoJSON (payload, productKey) {
 
   if (PBConfig.hasOwnProperty(productKey))
   {
+    var buffer =  Buffer.from(payload, 'hex')
     var messageType = readConfigFile(productKey)
     var mess = messageType.decode(buffer);
     var output = messageType.toObject(mess,{
@@ -77,5 +72,6 @@ function PBtoJSON (data, productKey) {
   //转为json
   var messagejson = JSON.stringify(obj,"","\t");
   console.log(messagejson)
+  return messagejson
 }
  
