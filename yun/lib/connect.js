@@ -60,10 +60,11 @@ client.on('message', (topic, message, packet) => {
   try{
     payload = JSON.parse(message.toString()).state.reported.payload
     const messagejson = ProtoBuf.ProtoBuf(payload,productKey)
+
     client.publish(`$rlwio/devices/D556f0845e04214ae3781d/shadow/update`, messagejson)
   }
   catch{
-    
+ 
   }
 
 })
