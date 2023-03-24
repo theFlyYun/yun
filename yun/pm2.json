@@ -1,16 +1,12 @@
 {
     "apps": [{
       "name": "data-parse",
-      "script": "./lib/connect",
-      "cwd": "./",
+      "script": "./lib/connect.js",
       "exec_mode": "fork",
       "instances": 1,
       "autorestart": true,
       "max_restarts":15,
       "min_uptime": "30s",
-      "node_args": "--max-old-space-size=65500",
-      "out_file": "/tmp/data-parse.log",
-      "error_file": "/tmp/data-parse.log",
       "combine_logs": true,
       "env": {
         "NODE_ENV": "development"
