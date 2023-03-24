@@ -6,7 +6,7 @@ module.exports ={
     getToken,getlist
 }
 
-async function getToken(username,password){
+async function getToken(){
 
   
     var access_token
