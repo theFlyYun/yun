@@ -1,5 +1,6 @@
 const config = require('../../config/config.js');
 const productkey2object = config.productkey2object;
+// const fetch = require("node-fetch") ;
 
 module.exports ={
     rawdata2JS
@@ -36,47 +37,23 @@ function getInfo(data,obj){
             return getBit(datavalue,byteLength,obj.startBit,obj.bitLength)
         }
     }
-
     // console.log(dataSlice,datavalue,byteLength,obj.startBit,obj.bitLength)
 }
 
 function rawdata2JS(data,productkey){
+    folder_path='../../config/streamconfig/'+config.productkey2object[productkey]
+    // console.log(folder_path)
 
-    var bufferData=Buffer.from(data, 'hex')
-    var deviceInfo=productkey2object[productkey].deviceInfo
-    var sensorInfo=productkey2object[productkey].sensorInfo
-    var deviceInfoObj={}
-    var sensorInfoObj={}//返回对象，用于组JS
+    var jsonconfig=require(folder_path)
 
-    //设备信息
-    for(key in deviceInfo){
-        var obj=deviceInfo[key]
-        if(key=='battery'){
-            sensorInfoObj[key]=getInfo(data,obj)
-        }
-        else{
-            deviceInfoObj[key]=getInfo(data,obj)
-        }
-        // deviceInfoObj[key]=getInfo(data,obj)
-        // break;
+    var payloadObj={}//返回对象，用于组JS
+
+    //payload信息解码
+    for(key in jsonconfig){
+        var obj=jsonconfig[key]
+        payloadObj[key]=getInfo(data,obj)
     }
 
-    //上报信息
-    for(var i=0;i<sensorInfo.length;i++){//遍历每层
-        var attributeInfo=sensorInfo[i].value
-        // var dataLength=getInfo(data,sensorInfo[i].dataLength)
-        // var sensorType=getInfo(data,sensorInfo[i].sensorType)
-        // console.log(errorCode,dataLength,sensorType)
-        for(key in attributeInfo){//遍历属性
-            var attributeObj=attributeInfo[key]
-            sensorInfoObj[key]=getInfo(data,attributeObj)
-        }
-    }
-
-    // console.log(deviceInfoObj)
-    // console.log(sensorInfoObj)
-    // console.log(getBit(70,0,16))
-
-
-    return sensorInfoObj
+    console.log(payloadObj)
+    return payloadObj
 }
