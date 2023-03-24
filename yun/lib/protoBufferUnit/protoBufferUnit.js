@@ -2,13 +2,27 @@ const config = require('../../config/config.js');
 const PBConfig = config.pb;
 const protobuf = require('protobufjs');
 const fs = require('fs');
-// const protoFilePath = '../config/pbconfig/';
+const protoFilePath = '../../config/pbconfig/';
 const path = require('path');
 
 const root = protobuf.Root.fromJSON(require("../../config/pbConfig/protobufConfig.json"));
 const payloaddecode = require('../utils/payloadDecode')
  
 exports.ProtoBuf = PBtoJSON;
+
+function Datahandle(deviceType,output)
+{
+    folder_path = protoFilePath + deviceType+'.json'
+    var jsonconfig = require(folder_path)
+    for(key in jsonconfig){
+        var obj = jsonconfig[key]
+        if(obj.hasOwnProperty('divisor'))
+        {
+          output[key] = output[key]/10;
+        }
+    }
+    return output
+}
 
 function PBtoJSON (payload, productKey) {
  
@@ -28,20 +42,14 @@ function PBtoJSON (payload, productKey) {
       objects: false,  
       oneofs: false,
     });
-    // folder_path='../../config/pbconfig/'+PBConfig[productKey]
-    // // console.log(folder_path)
-
-    // var jsonconfig=require(folder_path)
-    // console.log(jsonconfig)
-
-    // for(key in jsonconfig){
-    //     var obj=jsonconfig[key]
+    output = Datahandle(deviceType,output)
   }
 
   else{
    var output = payloaddecode.rawdata2JS(payload, productKey)
   }
   
+  output.payload_len = payload.length
   var obj = {
     state:{reported:output},
   };
