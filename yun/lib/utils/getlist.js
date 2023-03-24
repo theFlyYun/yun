@@ -57,7 +57,7 @@ async function getlist(){
             // console.log(res.data[key].did)
             did2PK[res.data[key].did]=res.data[key].product_key
         }
-        console.log(did2PK)
+        // console.log(did2PK)
     })
     .catch('get list failed', error => { console.log(error) })
 
