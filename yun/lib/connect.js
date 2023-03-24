@@ -17,10 +17,11 @@ const host = 'http://8.142.81.91:1883';
 // const productkey2='?气象站did'
 // const data4weather='0101060000420DAC030D0101020203030404050506060704020101'
 
-// var productKey = "74139f8ab541edb7a12a13eaeebaeada"
-var productKey = "a39ecc02a15affad254ff1a1ae8a244b"
+var productKey = "74139f8ab541edb7a12a13eaeebaeada"
+// var productKey = "a39ecc02a15affad254ff1a1ae8a244b"
 // var productKey = "8914442f7766b0926658c9cb1ef2746d"
 
+const test_did='D556f0845e04214ae3781d'
 const options = {
   keepalive: 60,
   clientId: clientId,
@@ -29,7 +30,7 @@ const options = {
   clean: true,
   reconnectPeriod: 1000,
   connectTimeout: 30 * 1000,
-  username: 'D556f0845e04214ae3781d',
+  username: test_did,
   // username:'D711143b78327ec08de9e9',
   password: '12345678',
 }
@@ -42,7 +43,7 @@ client.on('connect', () => {
   console.log('Client connected:' + clientId)
   // Subscribe
   // client.subscribe('$rlwio/devices/D711143b78327ec08de9e9/shadow/update/accepted', { qos: 0 })
-  client.subscribe('$rlwio/devices/D556f0845e04214ae3781d/shadow/update/accepted', { qos: 0 })
+  client.subscribe(`$rlwio/devices/${test_did}/shadow/update/accepted`, { qos: 0 })
  })
 
 client.on('error', (err) => {
@@ -55,6 +56,7 @@ client.on('reconnect', () => {
 })
 
 client.on('message', (topic, message, packet) => {
+  console.log("message receive")
  
   var payload
   try{
