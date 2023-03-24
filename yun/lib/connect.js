@@ -17,8 +17,8 @@ const host = 'http://8.142.81.91:1883';
 // const productkey2='?气象站did'
 // const data4weather='0101060000420DAC030D0101020203030404050506060704020101'
 
-var productKey = "74139f8ab541edb7a12a13eaeebaeada"
-// var productKey = "a39ecc02a15affad254ff1a1ae8a244b"
+// var productKey = "74139f8ab541edb7a12a13eaeebaeada"
+var productKey = "a39ecc02a15affad254ff1a1ae8a244b"
 // var productKey = "8914442f7766b0926658c9cb1ef2746d"
 
 const test_did='D556f0845e04214ae3781d'
@@ -56,7 +56,7 @@ client.on('reconnect', () => {
 })
 
 client.on('message', (topic, message, packet) => {
-  console.log("message receive")
+  // console.log("message receive")
  
   var payload
   try{
