@@ -245,6 +245,46 @@
         "startBit":2,
         "bitLength":6
     },
+    "error_code_5":{
+        "startByte":57,
+        "startBit":0,
+        "bitLength":2
+    },
+    "water_5":{
+        "startByte":58,
+        "startBit":0,
+        "bitLength":16,
+        "divisor":10,
+        "unit":"%RH"
+    },
+    "temp_5":{
+        "startByte":60,
+        "startBit":0,
+        "bitLength":16,
+        "divisor":10,
+        "unit":"°C"
+    },
+    "N_5":{
+        "startByte":62,
+        "startBit":0,
+        "bitLength":16,
+        "divisor":1,
+        "unit":"mg/kg"
+    },
+    "P_5":{
+        "startByte":64,
+        "startBit":0,
+        "bitLength":16,
+        "divisor":1,
+        "unit":"mg/kg"
+    },
+    "K_5":{
+        "startByte":66,
+        "startBit":0,
+        "bitLength":16,
+        "divisor":1,
+        "unit":"mg/kg"
+    },
     "sensorType_6":{
         "startByte":68,
         "startBit":0,
