@@ -1,6 +1,6 @@
 syntax = "proto2";
-package data_compression;
-message SensorMessage {
+package soil;
+message SoilMessage {
 
     optional uint32 data_format_version = 1;
     optional uint32 hardware_version = 2;
