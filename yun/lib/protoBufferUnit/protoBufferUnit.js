@@ -43,13 +43,13 @@ function PBtoJSON (payload, productKey) {
       oneofs: false,
     });
     output = Datahandle(deviceType,output)
+    output.payload_len = payload.length
   }
 
   else{
    var output = payloaddecode.rawdata2JS(payload, productKey)
   }
   
-  output.payload_len = payload.length
   var obj = {
     state:{reported:output},
   };
