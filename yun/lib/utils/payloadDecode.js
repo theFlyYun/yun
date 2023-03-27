@@ -20,21 +20,44 @@ function getInfo(data,obj){
     var byteLength=sliceEnd-sliceStart
     var dataSlice=data.slice(sliceStart*2,sliceEnd*2)
     var datavalue=parseInt(dataSlice,16)
+    var res
 
     if(obj.startBit==0&&obj.bitLength%8==0){
         if(obj.hasOwnProperty('divisor')){
-            return datavalue/obj.divisor
+            if(obj.hasOwnProperty('signsExist')&&obj.signsExist==true){
+                res=datavalue
+                res=res<32768?res/obj.divisor:(res-65536)/obj.divisor
+            }
+            else{
+                res=datavalue/obj.divisor
+            }
+            return res
         }
         else{
-            return datavalue
+            if(obj.hasOwnProperty('signsExist')&&obj.signsExist==true){
+                res=datavalue
+                res=res<32768?res:(res-65536)
+            }
+            else{
+                res=datavalue
+            }
+            return res
         }
     }
     else{
         if(obj.hasOwnProperty('divisor')){
-            return getBit(datavalue,byteLength,obj.startBit,obj.bitLength)/obj.divisor
+            res=getBit(datavalue,byteLength,obj.startBit,obj.bitLength)/obj.divisor
+            if(obj.hasOwnProperty('signsExist')&&obj.signsExist==true&&res>32767){
+                res-=65536/obj.divisor
+            }
+            return res
         }
         else{
-            return getBit(datavalue,byteLength,obj.startBit,obj.bitLength)
+            res=getBit(datavalue,byteLength,obj.startBit,obj.bitLength)
+            if(obj.hasOwnProperty('signsExist')&&obj.signsExist==true&&res>32767){
+                res-=65536
+            }
+            return res
         }
     }
     // console.log(dataSlice,datavalue,byteLength,obj.startBit,obj.bitLength)
