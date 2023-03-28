@@ -18,7 +18,7 @@ function Datahandle(deviceType,output)
         var obj = jsonconfig[key]
         if(obj.hasOwnProperty('divisor'))
         {
-          output[key] = output[key]/10;
+          output[key] = output[key]/obj.divisor;
         }
     }
     return output
@@ -43,7 +43,7 @@ function PBtoJSON (payload, productKey) {
       oneofs: false,
     });
     output = Datahandle(deviceType,output)
-    output.payload_len = payload.length
+    output.payload_len = payload.length/2
   }
 
   else{
