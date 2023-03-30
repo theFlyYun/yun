@@ -5,7 +5,7 @@ const fs = require('fs');
 const protoFilePath = '../../config/pbconfig/';
 const path = require('path');
 
-const root = protobuf.Root.fromJSON(require("../../config/pbConfig/protobufConfig.json"));
+const root = protobuf.Root.fromJSON(require("../../config/pbconfig/protobufConfig.json"));
 const payloaddecode = require('../utils/payloadDecode')
  
 exports.ProtoBuf = PBtoJSON;
