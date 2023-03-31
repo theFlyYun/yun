@@ -19,7 +19,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "pm2 start pm2.json",
+    "pm2": "pm2 start pm2.json",
+    "start":"node ./lib/connect",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

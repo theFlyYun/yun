@@ -1,10 +1,12 @@
 module.exports = {
 pb: {
   'dc6ed37dca2e99ca79213e45bd1a1662': 'payload.Message',
-  '56f9c24fe95b094ae74b108599371a63': 'soil.SoilMessage',
+  '56f9c24fe95b094ae74b108599371a63': ['soil.SoilMessage','soil']
 },
 productkey2object:{
   "74139f8ab541edb7a12a13eaeebaeada":'soil.json',
+  "e5e62f0f99c35f66b61b49b442d931d9":"soil.json",
+  "9c39233074709272faa46814eae7ebca":"soil.json",
   "1b313f4449a637bbbe8ed40c643a691a":'weather.json'
 },
 connect:{

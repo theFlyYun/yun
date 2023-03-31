@@ -10,9 +10,11 @@ const payloaddecode = require('../utils/payloadDecode')
  
 exports.ProtoBuf = PBtoJSON;
 
-function Datahandle(deviceType,output)
+function Datahandle(productKey,output)
 {
-    folder_path = protoFilePath + deviceType+'.json'
+  var folder_name = PBConfig[productKey][1]
+    folder_path = protoFilePath + folder_name+'.json'
+    console.log(folder_path)
     var jsonconfig = require(folder_path)
     for(key in jsonconfig){
         var obj = jsonconfig[key]
@@ -28,7 +30,7 @@ function PBtoJSON (payload, productKey) {
  
   if (PBConfig.hasOwnProperty(productKey))
   {
-    let deviceType = PBConfig[productKey];
+    let deviceType = PBConfig[productKey][0];
     let messageType = root.lookupType(deviceType);
 
     var buffer =  Buffer.from(payload, 'hex')
@@ -42,7 +44,8 @@ function PBtoJSON (payload, productKey) {
       objects: false,  
       oneofs: false,
     });
-    output = Datahandle(deviceType,output)
+
+    output = Datahandle(productKey,output)
     output.payload_len = payload.length/2
   }
 

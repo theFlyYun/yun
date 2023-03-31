@@ -77,6 +77,6 @@ function rawdata2JS(data,productkey){
         payloadObj[key]=getInfo(data,obj)
     }
 
-    console.log(payloadObj)
+    // console.log(payloadObj)
     return payloadObj
 }
