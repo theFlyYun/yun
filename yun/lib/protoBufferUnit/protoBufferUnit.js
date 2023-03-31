@@ -14,7 +14,6 @@ function Datahandle(productKey,output)
 {
   var folder_name = PBConfig[productKey][1]
     folder_path = protoFilePath + folder_name+'.json'
-    console.log(folder_path)
     var jsonconfig = require(folder_path)
     for(key in jsonconfig){
         var obj = jsonconfig[key]

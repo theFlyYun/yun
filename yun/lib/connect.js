@@ -32,13 +32,18 @@ client.on('reconnect', () => {
 })
 
 client.on('message', (topic, message, packet) => {
-//   console.log("message receive from",topic)
+  console.log("message receive from",topic)
   var did=topic.slice(15,37)
-  console.log("message receive from device:",did)
+ 
   var product_key=did2product_key[did]
   var payload
   try{
+    // const base64 = JSON.parse(message.toString()).state.reported.payload
+    // const buff = Buffer.from(base64, 'base64');
+    // const payload = buff.toString('utf-8');
+    // console.log(payload)
     payload = JSON.parse(message.toString()).state.reported.payload
+
     const messagejson = ProtoBuf.ProtoBuf(payload,product_key)
 
     client.publish(`$rlwio/devices/${did}/shadow/update`, messagejson)
