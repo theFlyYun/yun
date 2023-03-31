@@ -31,7 +31,6 @@ function PBtoJSON (payload, productKey) {
   {
     let deviceType = PBConfig[productKey][0];
     let messageType = root.lookupType(deviceType);
-
     var buffer =  Buffer.from(payload, 'hex')
     var mess = messageType.decode(buffer);
     var output = messageType.toObject(mess,{

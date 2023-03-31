@@ -31,28 +31,23 @@
                         },
                         "water_1": {
                             "type": "uint32",
-                            "id": 7,
-                            "rule":"required"
+                            "id": 7
                         },
                         "temp_1": {
-                            "type": "int32",
-                            "id": 8,
-                            "rule":"required"
+                            "type": "sint32",
+                            "id": 8
                         },
                         "N_1": {
                             "type": "uint32",
-                            "id": 9,
-                            "rule":"required"
+                            "id": 9
                         },
                         "P_1": {
                             "type": "uint32",
-                            "id": 10,
-                            "rule":"required"
+                            "id": 10
                         },
                         "K_1": {
                             "type": "uint32",
-                            "id": 11,
-                            "rule":"required"
+                            "id": 11
                         },
                         "error_code_2": {
                             "type": "uint32",
@@ -60,28 +55,23 @@
                         },
                         "water_2": {
                             "type": "uint32",
-                            "id": 13,
-                            "rule":"required"
+                            "id": 13
                         },
                         "temp_2": {
-                            "type": "int32",
-                            "id": 14,
-                            "rule":"required"
+                            "type": "sint32",
+                            "id": 14
                         },
                         "N_2": {
                             "type": "uint32",
-                            "id": 15,
-                            "rule":"required"
+                            "id": 15
                         },
                         "P_2": {
                             "type": "uint32",
-                            "id": 16,
-                            "rule":"required"
+                            "id": 16
                         },
                         "K_2": {
                             "type": "uint32",
-                            "id": 17,
-                            "rule":"required"
+                            "id": 17
                         },
                         "error_code_3": {
                             "type": "uint32",
@@ -89,28 +79,23 @@
                         },
                         "water_3": {
                             "type": "uint32",
-                            "id": 19,
-                            "rule":"required"
+                            "id": 19
                         },
                         "temp_3": {
-                            "type": "int32",
-                            "id": 20,
-                            "rule":"required"
+                            "type": "sint32",
+                            "id": 20
                         },
                         "N_3": {
                             "type": "uint32",
-                            "id": 21,
-                            "rule":"required"
+                            "id": 21
                         },
                         "P_3": {
                             "type": "uint32",
-                            "id": 22,
-                            "rule":"required"
+                            "id": 22
                         },
                         "K_3": {
                             "type": "uint32",
-                            "id": 23,
-                            "rule":"required"
+                            "id": 23
                         },
                         "error_code_4": {
                             "type": "uint32",
@@ -118,28 +103,23 @@
                         },
                         "water_4": {
                             "type": "uint32",
-                            "id": 25,
-                            "rule":"required"
+                            "id": 25
                         },
                         "temp_4": {
-                            "type": "int32",
-                            "id": 26,
-                            "rule":"required"
+                            "type": "sint32",
+                            "id": 26
                         },
                         "N_4": {
                             "type": "uint32",
-                            "id": 27,
-                            "rule":"required"
+                            "id": 27
                         },
                         "P_4": {
                             "type": "uint32",
-                            "id": 28,
-                            "rule":"required"
+                            "id": 28
                         },
                         "K_4": {
                             "type": "uint32",
-                            "id": 29,
-                            "rule":"required"
+                            "id": 29
                         },
                         "error_code_5": {
                             "type": "uint32",
@@ -147,28 +127,23 @@
                         },
                         "water_5": {
                             "type": "uint32",
-                            "id": 31,
-                            "rule":"required"
+                            "id": 31
                         },
                         "temp_5": {
-                            "type": "int32",
-                            "id": 32,
-                            "rule":"required"
+                            "type": "sint32",
+                            "id": 32
                         },
                         "N_5": {
                             "type": "uint32",
-                            "id": 33,
-                            "rule":"required"
+                            "id": 33
                         },
                         "P_5": {
                             "type": "uint32",
-                            "id": 34,
-                            "rule":"required"
+                            "id": 34
                         },
                         "K_5": {
                             "type": "uint32",
-                            "id": 35,
-                            "rule":"required"
+                            "id": 35
                         },
                         "error_code_PH": {
                             "type": "uint32",
@@ -176,8 +151,7 @@
                         },
                         "PH": {
                             "type": "uint32",
-                            "id": 37,
-                            "rule":"required"
+                            "id": 37
                         }
                     }
                 }
