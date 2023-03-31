@@ -1,25 +1,25 @@
-/* logger singleton */
-var winston = require('winston');
-// var moment = require('moment');
-// var _ = require('lodash');
+const { createLogger, format, transports } = require('winston');
+const { combine, timestamp, label, printf } = format;
+const date = new Date();
 
-var defaultOptions = {
-  level: 'silly',
-  colorize: false,
-  humanReadable: false,
-};
+const myFormat = printf(({ level, message, label, timestamp }) => {
+  return `${timestamp} [${label}] ${level}: ${message}`;
+});
 
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.json(),
-  defaultMeta: { service: 'user-service' },
+const logger = createLogger({
+  format: combine(
+    label({ label: 'right meow!' }),
+    timestamp(),
+    myFormat
+  ),
   transports: [
     //
     // - Write all logs with importance level of `error` or less to `error.log`
     // - Write all logs with importance level of `info` or less to `combined.log`
     //
-    new winston.transports.File({ filename: './yun/lib/logs/error.log', level: 'error' }),
-    new winston.transports.File({ filename: './yun/lib/logs/combined.log',level:'info' }),
+    new transports.File({ filename: `./yun/lib/logs/logs/error/${date.toDateString()}.log`, level: 'error' }),
+    new transports.File({ filename: `./yun/lib/logs/logs/info/${date.toDateString()}.log`,level:'info' }),
+    new transports.File({ filename: `./yun/lib/logs/logs/warning/${date.toDateString()}.log`,level:'warning' }),
   ],
 });
 
