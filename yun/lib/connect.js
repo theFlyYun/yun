@@ -61,7 +61,7 @@ client.on('message', (topic, message, packet) => {
       logger.info(`Message which has no payload,dont need decode:${JS_origin_message}`)
     }
   }
-  catch{
+  catch(err){
     logger.error(`Message parsing process error:${err}`)
   }
 })
