@@ -1,5 +1,6 @@
 const config = require('../../config/config.js');
 const productkey2object = config.productkey2object;
+var logger=require('../lib/logs/logger')
 // const fetch = require("node-fetch") ;
 
 module.exports ={
@@ -8,9 +9,15 @@ module.exports ={
 
 //按位解析，返回值
 function getBit(data,byteLength,startBit,bitLength){
-    //data：字节流，高位不足补0
-    var length=byteLength*8//总长
-    return Math.floor((data%(1<<(length-startBit)))/(1<<(length-startBit-bitLength)));
+    try{
+        //data：字节流，高位不足补0
+        var length=byteLength*8//总长
+        return Math.floor((data%(1<<(length-startBit)))/(1<<(length-startBit-bitLength)));
+
+    }
+    catch{
+        logger.error(`gitbit use error`)
+    }
 }
 
 function getInfo(data,obj){

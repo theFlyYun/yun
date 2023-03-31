@@ -1,6 +1,7 @@
 const config = require('../config/config.js');
 const ProtoBuf = require('./protoBufferUnit/protoBufferUnit');
 const _=require('./utils/getlist');
+var logger=require('../lib/logs/logger')
 
 var mqtt = require('mqtt');
 // const { PBtoJSON } = require('../lib/protoBufferUnit');
@@ -17,6 +18,7 @@ client.on('connect', () => {
     did2product_key=did2PK
     for(key in did2PK){
       client.subscribe(`$rlwio/devices/${key}/shadow/update/accepted`, { qos: 0 })
+      logger.info(`${key} has subscribed`)
     }
 
   })
@@ -24,11 +26,13 @@ client.on('connect', () => {
 
 client.on('error', (err) => {
   console.log('Connection error: ', err)
+  logger.error(`${err}`)
   client.end()
 }) 
 
 client.on('reconnect', () => {
   console.log('Reconnecting...')
+  logger.info(`reconnect`)
 })
 
 client.on('message', (topic, message, packet) => {
@@ -38,17 +42,28 @@ client.on('message', (topic, message, packet) => {
   var product_key=did2product_key[did]
   var payload
   try{
-    // const base64 = JSON.parse(message.toString()).state.reported.payload
-    // const buff = Buffer.from(base64, 'base64');
-    // const payload = buff.toString('utf-8');
-    // console.log(payload)
-    payload = JSON.parse(message.toString()).state.reported.payload
+    var JS_origin_message=JSON.parse(message.toString())
 
-    const messagejson = ProtoBuf.ProtoBuf(payload,product_key)
+    if(JS_origin_message.state.reported.payload!=undefined){
+      // const base64 = JSON.parse(message.toString()).state.reported.payload
+      // const buff = Buffer.from(base64, 'base64');
+      // const payload = buff.toString('utf-8');
+      // console.log(payload)
 
-    client.publish(`$rlwio/devices/${did}/shadow/update`, messagejson)
+      payload = JS_origin_message.state.reported.payload
+
+      const messagejson = ProtoBuf.ProtoBuf(payload,product_key)
+  
+      client.publish(`$rlwio/devices/${did}/shadow/update`, messagejson)
+  
+      logger.info(`Message decoding succeeded:${messagejson}`)
+
+    }
+    else{
+      logger.info(`Message which has no payload,dont need decode:${JS_origin_message}`)
+    }
   }
   catch{
- 
+    logger.error(`Message parsing process error:${err}`)
   }
 })
