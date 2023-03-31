@@ -45,12 +45,10 @@ client.on('message', (topic, message, packet) => {
     var JS_origin_message=JSON.parse(message.toString())
 
     if(JS_origin_message.state.reported.payload!=undefined){
-      // const base64 = JSON.parse(message.toString()).state.reported.payload
-      // const buff = Buffer.from(base64, 'base64');
-      // const payload = buff.toString('utf-8');
-      // console.log(payload)
 
-      payload = JS_origin_message.state.reported.payload
+      const base64  = JS_origin_message.state.reported.payload
+      const buff = Buffer.from(base64, 'base64');
+      payload = buff.toString('hex');
 
       const messagejson = ProtoBuf.ProtoBuf(payload,product_key)
   

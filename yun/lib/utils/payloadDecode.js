@@ -1,6 +1,6 @@
 const config = require('../../config/config.js');
 const productkey2object = config.productkey2object;
-var logger=require('../lib/logs/logger')
+var logger=require('../logs/logger')
 // const fetch = require("node-fetch") ;
 
 module.exports ={
