@@ -18,7 +18,7 @@ function Datahandle(productKey,output)
    var jsonconfig = require(folder_path)
     for(key in jsonconfig){
         var obj = jsonconfig[key]
-        if(obj.hasOwnProperty('divisor'))
+        if(obj.hasOwnProperty('divisor')&&output[key]!=null)
         {
           output[key] = output[key]/obj.divisor;
         }
