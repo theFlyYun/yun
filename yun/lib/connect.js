@@ -58,7 +58,7 @@ client.on('message', (topic, message, packet) => {
 
     }
     else{
-      logger.info(`Message which has no payload,dont need decode:${JS_origin_message}`)
+      // logger.info(`Message which has no payload,dont need decode:${message.toString()}`)
     }
   }
   catch(err){
