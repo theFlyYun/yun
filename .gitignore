@@ -1,4 +1,2 @@
 /yun/node_modules
 /yun/lib/logs/*
-/yun/package-lock.json
-/yun/package.json
