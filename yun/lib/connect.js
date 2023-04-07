@@ -1,7 +1,10 @@
 const config = require('../config/config.js');
 const ProtoBuf = require('./protoBufferUnit/protoBufferUnit');
 const _=require('./utils/getlist');
-var logger=require('../lib/logs/logger')
+
+const createLogger=require('../lib/logs/logger')
+const opt = require("../config/config").logger;
+const logger = new createLogger(opt);
 
 var mqtt = require('mqtt');
 // const { PBtoJSON } = require('../lib/protoBufferUnit');
@@ -18,7 +21,7 @@ client.on('connect', () => {
     did2product_key=did2PK
     for(key in did2PK){
       client.subscribe(`$rlwio/devices/${key}/shadow/update/accepted`, { qos: 0 })
-      logger.info(`${key} has subscribed`)
+      logger.debug(`${key} has subscribed`)
     }
 
   })
@@ -32,12 +35,14 @@ client.on('error', (err) => {
 
 client.on('reconnect', () => {
   console.log('Reconnecting...')
-  logger.info(`reconnect`)
+  logger.debug(`reconnect`)
 })
 
 client.on('message', (topic, message, packet) => {
-  console.log("message receive from",topic)
+  // console.log("message receive from",topic)
   var did=topic.slice(15,37)
+
+  // logger.debug(message.toString())
  
   var product_key=did2product_key[did]
   var payload
@@ -46,6 +51,7 @@ client.on('message', (topic, message, packet) => {
 
     if(JS_origin_message.state.reported.payload!=undefined){
 
+      logger.debug(message.toString())
       const base64  = JS_origin_message.state.reported.payload
       const buff = Buffer.from(base64, 'base64');
       payload = buff.toString('hex');
@@ -53,15 +59,13 @@ client.on('message', (topic, message, packet) => {
       const messagejson = ProtoBuf.ProtoBuf(payload,product_key)
   
       client.publish(`$rlwio/devices/${did}/shadow/update`, messagejson)
-  
-      logger.info(`Message decoding succeeded:${messagejson}`)
-
+      // logger.debug(messagejson.toString())
     }
     else{
-      // logger.info(`Message which has no payload,dont need decode:${message.toString()}`)
+      // logger.debug(message.toString())
     }
   }
   catch(err){
-    logger.error(`Message parsing process error:${err}`)
+    logger.error(`${err}`)
   }
 })

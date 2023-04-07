@@ -7,7 +7,10 @@ const path = require('path');
 
 const root = protobuf.Root.fromJSON(require("../../config/pbconfig/protobufConfig.json"));
 const payloaddecode = require('../utils/payloadDecode')
-var logger=require('../../lib/logs/logger')
+
+const opt = require("../../config/config.js").logger;
+const createLogger=require('../logs/logger')
+const logger = new createLogger(opt);
  
 exports.ProtoBuf = PBtoJSON;
 
@@ -51,7 +54,7 @@ function PBtoJSON (payload, productKey) {
    var output = payloaddecode.rawdata2JS(payload, productKey)
   }
   else{
-    logger.error(`Payload has no productKey config`)
+    logger.error(`productKey:${productKey} can not found in config`)
   }
 
   var obj = {
@@ -59,8 +62,9 @@ function PBtoJSON (payload, productKey) {
   };
 
   //转为json
+  logger.debug(obj)
   var messagejson = JSON.stringify(obj,"","\t");
-  console.log(messagejson)
+  // console.log(messagejson)
   
   return messagejson
 }
